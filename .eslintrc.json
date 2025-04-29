@@ -1,0 +1,16 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "next/core-web-vitals", // Use Next.js core config first
+    "plugin:@typescript-eslint/recommended", // Add TypeScript specific rules
+    "prettier" // Add prettier last to override conflicting ESLint rules
+  ],
+  "rules": {
+    // Remove formatting rules handled by Prettier
+    // "quotes": ["error", "single"], // Handled by Prettier
+    // "@typescript-eslint/indent": ["error", 2], // Handled by Prettier
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/react-in-jsx-scope": "off"
+  }
+}
