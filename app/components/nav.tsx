@@ -1,40 +1,78 @@
 import Link from 'next/link';
+import { Menu } from 'lucide-react';
+
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  navigationMenuTriggerStyle,
+} from '@/components/ui/navigation-menu';
+import { Button } from '@/components/ui/button';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const navItems = {
   '/': {
-    name: 'home',
+    name: 'Home',
   },
-  '/blog': {
-    name: 'blog',
+  '/about-us': {
+    name: 'About us',
   },
-  'https://vercel.com/templates/next.js/portfolio-starter-kit': {
-    name: 'deploy',
+  '/about-project': {
+    name: 'About our project',
   },
 };
 
 export function Navbar() {
   return (
-    <aside className="-ml-[8px] mb-16 tracking-tight">
-      <div className="lg:sticky lg:top-20">
-        <nav
-          className="flex flex-row items-start relative px-0 pb-0 fade md:overflow-auto scroll-pr-6 md:relative"
-          id="nav"
-        >
-          <div className="flex flex-row space-x-0 pr-10">
-            {Object.entries(navItems).map(([path, { name }]) => {
-              return (
+    <nav className="flex justify-between items-center">
+      {' '}
+      {/* Removed padding and background/border styles */}
+      {/* Desktop Navigation */}
+      <div className="hidden md:flex">
+        <NavigationMenu title="Navigation Menu">
+          <NavigationMenuList>
+            {Object.entries(navItems).map(([path, { name }]) => (
+              <NavigationMenuItem key={path}>
+                <NavigationMenuLink
+                  href={path}
+                  className={navigationMenuTriggerStyle()}
+                >
+                  {name}
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+      {/* Mobile Navigation */}
+      <div className="md:hidden w-full">
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-transparent"
+            >
+              <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle navigation menu</span>
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" title="Navigation Menu">
+            <nav className="grid gap-4 text-lg font-medium mt-6">
+              {Object.entries(navItems).map(([path, { name }]) => (
                 <Link
                   key={path}
                   href={path}
-                  className="transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle relative py-1 px-2 m-1"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
                 >
                   {name}
                 </Link>
-              );
-            })}
-          </div>
-        </nav>
+              ))}
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
-    </aside>
+    </nav>
   );
 }

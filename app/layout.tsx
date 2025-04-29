@@ -44,22 +44,42 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={cx(
-        'text-black bg-white dark:text-white dark:bg-black',
-        GeistSans.variable,
-        GeistMono.variable,
-      )}
-    >
-      <body className="antialiased max-w-xl mx-4 mt-8 lg:mx-auto">
-        <main className="flex-auto min-w-0 mt-6 flex flex-col px-2 md:px-0">
-          <Navbar />
-          {children}
-          <Footer />
+    <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
+      {/* Ensure body takes full height and footer sticks to bottom */}
+      <body className="flex flex-col min-h-screen bg-background text-foreground">
+        {/* Header with full-width background/border */}
+        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+          {/* Centered container for Navbar content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Navbar />
+          </div>
+        </header>
+
+        {/* Main content area */}
+        {/* Apply flex-grow to make main take available space */}
+        <main className="flex-grow w-full">
+          {/* Centered container for page content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            {' '}
+            {/* Added py-6 for vertical spacing */}
+            {children}
+          </div>
+        </main>
+
+        {/* Footer with full-width background/border */}
+        <footer className="w-full border-t border-border/40">
+          {' '}
+          {/* Removed mb-16 */}
+          {/* Centered container for Footer content */}
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            {' '}
+            {/* Added py-8 for vertical spacing */}
+            <Footer />
+          </div>
+          {/* Analytics components outside the visual container */}
           <Analytics />
           <SpeedInsights />
-        </main>
+        </footer>
       </body>
     </html>
   );
