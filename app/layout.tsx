@@ -50,7 +50,7 @@ export default function RootLayout({
         {/* Header with full-width background/border */}
         <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
           {/* Centered container for Navbar content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-5xl mx-auto px-4">
             <Navbar />
           </div>
         </header>
@@ -59,7 +59,7 @@ export default function RootLayout({
         {/* Apply flex-grow to make main take available space */}
         <main className="flex-grow w-full">
           {/* Centered container for page content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="max-w-5xl mx-auto px-4 py-6">
             {' '}
             {/* Added py-6 for vertical spacing */}
             {children}
@@ -71,7 +71,7 @@ export default function RootLayout({
           {' '}
           {/* Removed mb-16 */}
           {/* Centered container for Footer content */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {' '}
             {/* Added py-8 for vertical spacing */}
             <Footer />
