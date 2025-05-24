@@ -8,7 +8,7 @@ export function HeroSection() {
         Bachelor Application Management System
       </h1>
       <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-4">
-        A full-stack web application system that streamlined Accenture's
+        A full-stack web application system that streamlined Accenture&apos;s
         bachelor thesis application process. Includes a student-facing
         application portal and an administrative dashboard, reducing manual
         processing time and ensuring GDPR compliance.

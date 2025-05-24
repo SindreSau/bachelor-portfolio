@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Globe, Github, Linkedin } from 'lucide-react';
 import { AvatarImage } from '@/components/ui/avatar-image';
 import { socials } from '../config/socials';
