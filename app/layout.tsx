@@ -11,15 +11,35 @@ import { baseUrl } from './sitemap';
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
   title: {
-    default: 'Next.js Portfolio Starter',
-    template: '%s | Next.js Portfolio Starter',
+    default: 'Accenture Bachelor Application Management System',
+    template: '%s | Accenture Bachelor Application Management System',
   },
-  description: 'This is my portfolio.',
+  description:
+    "A full-stack web application system that transformed Accenture's bachelor thesis application process. Built with Next.js, TypeScript, and PostgreSQL, the solution includes a student-facing application portal and an administrative dashboard, reducing manual processing time and ensuring GDPR compliance.",
+  keywords: [
+    'Next.js',
+    'TypeScript',
+    'PostgreSQL',
+    'Azure Blob Storage',
+    'Docker',
+    'Tailwind CSS',
+    'Prisma ORM',
+    'bachelor thesis',
+    'Accenture',
+    'application management',
+    'GDPR compliance',
+  ],
+  authors: [
+    { name: 'Sindre Sauarlia' },
+    { name: 'Ådne Nilsen Longva' },
+    { name: 'Alexander Cody McCorkle' },
+  ],
   openGraph: {
-    title: 'My Portfolio',
-    description: 'This is my portfolio.',
+    title: 'Accenture Bachelor Application Management System',
+    description:
+      "A full-stack web application system that digitally transformed Accenture's bachelor thesis application process. Built with Next.js, TypeScript, and PostgreSQL.",
     url: baseUrl,
-    siteName: 'My Portfolio',
+    siteName: 'Accenture Bachelor Application Management System',
     locale: 'en_US',
     type: 'website',
   },
@@ -45,41 +65,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={cx(GeistSans.variable, GeistMono.variable)}>
-      {/* Ensure body takes full height and footer sticks to bottom */}
-      <body className="flex flex-col min-h-screen bg-background text-foreground">
-        {/* Header with full-width background/border */}
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          {/* Centered container for Navbar content */}
-          <div className="max-w-5xl mx-auto px-4">
-            <Navbar />
-          </div>
-        </header>
-
-        {/* Main content area */}
-        {/* Apply flex-grow to make main take available space */}
-        <main className="flex-grow w-full">
-          {/* Centered container for page content */}
-          <div className="max-w-5xl mx-auto px-4 py-6">
-            {' '}
-            {/* Added py-6 for vertical spacing */}
-            {children}
-          </div>
-        </main>
-
-        {/* Footer with full-width background/border */}
-        <footer className="w-full border-t border-border/40">
-          {' '}
-          {/* Removed mb-16 */}
-          {/* Centered container for Footer content */}
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            {' '}
-            {/* Added py-8 for vertical spacing */}
-            <Footer />
-          </div>
-          {/* Analytics components outside the visual container */}
-          <Analytics />
-          <SpeedInsights />
-        </footer>
+      <body className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-1">{children}</main>
+        <Footer />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
