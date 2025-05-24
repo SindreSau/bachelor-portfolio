@@ -8,7 +8,7 @@ export function HeroSection() {
         Application Management System
       </h1>
       <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-4">
-        Streamlined <strong>Accenture</strong>'s bachelor thesis application
+        Streamlined <strong>Accenture</strong>&apos; bachelor thesis application
         process. Includes a student-facing application portal and an
         administrative dashboard, reducing manual processing time and ensuring
         GDPR compliance.
