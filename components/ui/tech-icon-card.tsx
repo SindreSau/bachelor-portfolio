@@ -18,7 +18,7 @@ export function TechIconCard({ icon, name, className }: TechIconCardProps) {
       <TooltipTrigger>
         <div
           className={cn(
-            'p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors',
+            'p-2 rounded-lg bg-card border border-border hover:bg-accent transition-colors w-10 h-10 flex items-center justify-center',
             className,
           )}
         >

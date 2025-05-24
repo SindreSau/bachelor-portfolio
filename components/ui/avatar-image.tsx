@@ -17,8 +17,8 @@ const sizeVariants = {
 };
 
 const borderVariants = {
-  primary: 'border-4 border-primary',
-  border: 'border-2 border-border',
+  primary: 'border-2 border-primary/50',
+  border: 'border-border',
   none: '',
 };
 

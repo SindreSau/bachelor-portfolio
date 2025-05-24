@@ -16,9 +16,9 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
           {/* Team Section */}
           <Link href="/team" className="block group">
             <Card
-              heading="Our Team"
+              heading="The Team"
               description="Meet the three Information Technology students from OsloMet who developed this comprehensive application management system."
-              className="transition-all duration-300 group-hover:bg-accent/50"
+              className="transition-all duration-300 group-hover:bg-accent/50  flex flex-col justify-between"
             >
               {/* Mobile: Triangle layout */}
               <div className="flex justify-center mb-4 md:hidden">
@@ -83,7 +83,7 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
             <Card
               heading="System Architecture"
               description="Explore the technical architecture, system design patterns, and infrastructure decisions that power the application management platform."
-              className="transition-all duration-300 group-hover:bg-accent/50"
+              className="transition-all duration-300 group-hover:bg-accent/50  flex flex-col justify-between"
             >
               <div className="flex justify-center mb-4">
                 <div className="w-full max-w-lg">
