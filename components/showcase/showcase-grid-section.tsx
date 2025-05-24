@@ -99,43 +99,50 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
             </Card>
           </Link>
 
-          {/* Admin Dashboard Section */}
-          <Link href="/admin-dashboard" className="block group">
-            <Card
-              heading="Admin Dashboard"
-              description="A comprehensive administrative interface for managing applications, reviewing submissions, and tracking the entire process."
-              className="transition-all duration-300 group-hover:bg-accent/50 h-full"
-            >
-              <div className="p-4 rounded-lg h-full">
-                <Image
-                  src="/images/admin_dashboard/dashboard-application-table-view.png"
-                  alt="Admin Dashboard Screenshot"
-                  width={1000}
-                  height={600}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </Card>
-          </Link>
+          {/* Bottom Row - Dashboard and Portal with Synchronized Heights */}
+          <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Admin Dashboard Section */}
+            <Link href="/admin-dashboard" className="block group">
+              <Card
+                heading="Admin Dashboard"
+                description="A comprehensive administrative interface for managing applications, reviewing submissions, and tracking the entire process."
+                className="transition-all duration-300 group-hover:bg-accent/50 h-full"
+              >
+                <div className="p-4 rounded-lg">
+                  <div className="aspect-[18/12]">
+                    <Image
+                      src="/images/admin_dashboard/dashboard-application-table-view.png"
+                      alt="Admin Dashboard Screenshot"
+                      width={1000}
+                      height={600}
+                      className="w-full h-full object-cover rounded"
+                    />
+                  </div>
+                </div>
+              </Card>
+            </Link>
 
-          {/* Application Portal Section */}
-          <Link href="/application-portal" className="block group">
-            <Card
-              heading="Application Portal"
-              description="An intuitive and accessible student-facing portal for submitting thesis applications, uploading documents, and tracking application status."
-              className="transition-all duration-300 group-hover:bg-accent/50 h-full"
-            >
-              <div className="p-4 rounded-lg h-full">
-                <Image
-                  src="/images/application_portal/application-form.png"
-                  alt="Application Portal Screenshot"
-                  width={1000}
-                  height={600}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </Card>
-          </Link>
+            {/* Application Portal Section */}
+            <Link href="/application-portal" className="block group">
+              <Card
+                heading="Application Portal"
+                description="An intuitive and accessible student-facing portal for submitting thesis applications, uploading documents, and tracking application status."
+                className="transition-all duration-300 group-hover:bg-accent/50 h-full"
+              >
+                <div className="p-4 rounded-lg">
+                  <div className="aspect-[18/12]">
+                    <Image
+                      src="/images/application_portal/application-form.png"
+                      alt="Application Portal Screenshot"
+                      width={1000}
+                      height={600}
+                      className="w-full h-full object-cover rounded"
+                    />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+          </div>
         </div>
       </div>
     </section>
