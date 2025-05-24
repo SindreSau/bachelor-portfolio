@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Globe, Github, Linkedin } from 'lucide-react';
 import { AvatarImage } from '@/components/ui/avatar-image';
-import { socials } from '../config/socials';
+import { socials } from '../../config/socials';
 
 export default function Footer() {
   return (

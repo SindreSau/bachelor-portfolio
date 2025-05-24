@@ -1,5 +1,5 @@
 import { TechIconCard } from '@/components/ui/tech-icon-card';
-import { technologies } from '@/app/config/technologies';
+import { technologies } from '@/config/technologies';
 
 export function HeroSection() {
   return (
