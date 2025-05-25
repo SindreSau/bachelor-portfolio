@@ -72,14 +72,6 @@ export default function TeamPage() {
     },
   ];
 
-  const keyResults = [
-    'Successfully met all Must-have and Should-have requirements from our MoSCoW prioritization',
-    'Achieved 100/100 performance scores on Google PageSpeed Insights',
-    'Exceeded 95/100 accessibility standards',
-    'Implemented enterprise-grade security with multi-factor authentication',
-    'Delivered fully responsive design across all devices and screen sizes',
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
