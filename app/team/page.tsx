@@ -3,8 +3,6 @@ import { Globe } from 'lucide-react';
 import { Icon } from '@iconify/react';
 import { AvatarImage } from '@/components/ui/avatar-image';
 import { Card } from '@/components/ui/card';
-import { TechIconCard } from '@/components/ui/tech-icon-card';
-import { technologies } from '@/config/technologies';
 import { socials } from '@/config/socials';
 
 export default function TeamPage() {
