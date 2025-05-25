@@ -13,72 +13,53 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
     <section className={cn('py-8 px-6 bg-background', className)}>
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Team Section */}
           <Link href="/team" className="block group">
             <Card
               heading="The Team"
-              description="Meet the three Information Technology students from OsloMet who developed this comprehensive application management system."
+              description="Meet the three IT students from OsloMet behind the system"
               className="transition-all duration-300 group-hover:bg-accent/50  flex flex-col justify-between"
             >
-              {/* Mobile: Triangle layout */}
-              <div className="flex justify-center mb-4 md:hidden">
-                <div className="flex flex-col items-center space-y-4">
-                  {/* Top member */}
+              <div className="flex flex-col items-center space-y-4 lg:flex-row lg:justify-center lg:space-y-0 lg:space-x-12 mb-4">
+                <div className="text-center">
                   <AvatarImage
                     src="/images/team/Sindre Sauarlia.jpg"
                     alt="Sindre Sauarlia"
-                    size="md"
+                    size="lg"
+                    className="mx-auto mb-3 md:size-lg"
                   />
-                  {/* Bottom two members */}
-                  <div className="flex space-x-8">
+                  <p className="text-sm font-medium text-foreground hidden md:block">
+                    Sindre
+                  </p>
+                </div>
+
+                <div className="flex space-x-8 md:space-x-12">
+                  <div className="text-center">
                     <AvatarImage
                       src="/images/team/Adne Longva.jpeg"
                       alt="Ådne Nilsen Longva"
-                      size="md"
+                      size="lg"
+                      className="mx-auto mb-3 md:size-lg"
                     />
+                    <p className="text-sm font-medium text-foreground hidden md:block">
+                      Ådne
+                    </p>
+                  </div>
+                  <div className="text-center">
                     <AvatarImage
                       src="/images/team/Alex McCorkle .jpeg"
                       alt="Alex McCorkle"
-                      size="md"
+                      size="lg"
+                      className="mx-auto mb-3 md:size-lg"
                     />
+                    <p className="text-sm font-medium text-foreground hidden md:block">
+                      Alex
+                    </p>
                   </div>
-                </div>
-              </div>
-
-              {/* Desktop: Horizontal layout */}
-              <div className="hidden md:flex justify-center space-x-12 mb-4">
-                <div className="text-center">
-                  <AvatarImage
-                    src="/images/team/Sindre Sauarlia.jpg"
-                    alt="Sindre Sauarlia"
-                    size="lg"
-                    className="mx-auto mb-3"
-                  />
-                  <p className="text-sm font-medium text-foreground">Sindre</p>
-                </div>
-                <div className="text-center">
-                  <AvatarImage
-                    src="/images/team/Adne Longva.jpeg"
-                    alt="Ådne Nilsen Longva"
-                    size="lg"
-                    className="mx-auto mb-3"
-                  />
-                  <p className="text-sm font-medium text-foreground">Ådne</p>
-                </div>
-                <div className="text-center">
-                  <AvatarImage
-                    src="/images/team/Alex McCorkle .jpeg"
-                    alt="Alex McCorkle"
-                    size="lg"
-                    className="mx-auto mb-3"
-                  />
-                  <p className="text-sm font-medium text-foreground">Alex</p>
                 </div>
               </div>
             </Card>
           </Link>
 
-          {/* Architecture Section */}
           <Link href="/architecture" className="block group">
             <Card
               heading="System Architecture"
@@ -99,9 +80,7 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
             </Card>
           </Link>
 
-          {/* Bottom Row - Dashboard and Portal with Synchronized Heights */}
           <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Admin Dashboard Section */}
             <Link href="/admin-dashboard" className="block group">
               <Card
                 heading="Admin Dashboard"
@@ -122,7 +101,6 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
               </Card>
             </Link>
 
-            {/* Application Portal Section */}
             <Link href="/application-portal" className="block group">
               <Card
                 heading="Application Portal"

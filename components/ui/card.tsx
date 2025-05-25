@@ -23,7 +23,7 @@ export function Card({
   return (
     <div
       className={cn(
-        'bg-card rounded-lg p-6 border border-border h-full',
+        'bg-card rounded-lg p-6 border border-border h-full flex flex-col',
         className,
       )}
     >
@@ -38,7 +38,7 @@ export function Card({
         </h2>
       )}
 
-      <div className={cn('mb-4', contentClassName)}>{children}</div>
+      <div className={cn('flex-1', contentClassName)}>{children}</div>
 
       {description && (
         <p

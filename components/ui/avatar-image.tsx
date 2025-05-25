@@ -1,51 +1,55 @@
 import Image from 'next/image';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-interface AvatarImageProps {
+const avatarVariants = cva('rounded-full overflow-hidden', {
+  variants: {
+    size: {
+      sm: 'size-8',
+      md: 'size-14',
+      lg: 'size-24',
+    },
+    borderColor: {
+      primary: 'border-2 border-primary/50',
+      border: 'border border-border',
+      none: '',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+    borderColor: 'primary',
+  },
+});
+
+const sizeToImageDimensions = {
+  sm: { width: 32, height: 32 },
+  md: { width: 96, height: 96 },
+  lg: { width: 128, height: 128 },
+  xl: { width: 160, height: 160 },
+} as const;
+
+interface AvatarImageProps extends VariantProps<typeof avatarVariants> {
   src: string;
   alt: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
   className?: string;
-  borderColor?: 'primary' | 'border' | 'none';
 }
-
-const sizeVariants = {
-  sm: { container: 'size-8', width: 32, height: 32 },
-  md: { container: 'w-24 h-24', width: 96, height: 96 },
-  lg: { container: 'w-32 h-32', width: 128, height: 128 },
-  xl: { container: 'w-40 h-40', width: 160, height: 160 },
-};
-
-const borderVariants = {
-  primary: 'border-2 border-primary/50',
-  border: 'border-border',
-  none: '',
-};
 
 export function AvatarImage({
   src,
   alt,
   size = 'md',
-  className,
   borderColor = 'primary',
+  className,
 }: AvatarImageProps) {
-  const sizeConfig = sizeVariants[size];
-  const borderClass = borderVariants[borderColor];
+  const imageDimensions = sizeToImageDimensions[size!];
 
   return (
-    <div
-      className={cn(
-        sizeConfig.container,
-        'rounded-full overflow-hidden',
-        borderClass,
-        className,
-      )}
-    >
+    <div className={cn(avatarVariants({ size, borderColor }), className)}>
       <Image
         src={src}
         alt={alt}
-        width={sizeConfig.width}
-        height={sizeConfig.height}
+        width={imageDimensions.width}
+        height={imageDimensions.height}
         className="w-full h-full object-cover"
       />
     </div>
