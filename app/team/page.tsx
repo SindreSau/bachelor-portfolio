@@ -4,6 +4,13 @@ import { Icon } from '@iconify/react';
 import { AvatarImage } from '@/components/ui/avatar-image';
 import { Card } from '@/components/ui/card';
 import { socials } from '@/config/socials';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'The Team',
+  description:
+    'Meet the team behind the Accenture Bachelor Application Management System. We are three Information Technology students from OsloMet who are passionate about developing innovative solutions.',
+};
 
 export default function TeamPage() {
   const teamMembers = [
@@ -39,19 +46,29 @@ export default function TeamPage() {
 
   const approaches = [
     {
-      title: 'Agile Development',
+      title: 'Careful planning',
       description:
-        'We implemented Scrum practices with two-week sprints, daily stand-ups, and regular retrospectives to maintain alignment and consistent progress throughout the project.',
+        "We used MoSCoW prioritization to categorize features as Must-have, Should-have, Could-have, or Won't-have, focusing on critical functionality first. Our planning included UML diagrams, database modeling, risk assessments, and wireframes validated through user testing before development.",
     },
     {
-      title: 'Collaborative Workflow',
+      title: 'Scrum',
       description:
-        'Using Git for version control and GitHub Projects for task management, we maintained a feature-based branching strategy that enabled efficient parallel development.',
+        'We implemented Scrum practices with two-week sprints, daily stand-ups, and regular retrospectives to maintain alignment and consistent progress throughout the project.',
     },
     {
       title: 'Quality Focus',
       description:
         'Our testing strategy included unit tests for all server actions and end-to-end testing for critical user flows, ensuring reliable and maintainable code.',
+    },
+    {
+      title: 'CI/CD for continuous feedback',
+      description:
+        'We established a robust CI/CD pipeline connected to our GitHub repository, automatically deploying updates to a hosted demo environment. This approach allowed us to catch deployment issues early while providing stakeholders with 24/7 access to test new features and provide ongoing feedback throughout development.',
+    },
+    {
+      title: 'Exceeding expectations',
+      description:
+        'Our final delivery surpassed the original project vision. We successfully implemented all Must-have and Should-have requirements as planned for our MVP, allowing time for additional refinements and quality improvements that elevated the user experience beyond initial expectations.',
     },
   ];
 
@@ -149,14 +166,31 @@ export default function TeamPage() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-12">Our Approach</h2>
           <div className="space-y-8">
-            {approaches.map((approach, index) => (
-              <div key={index} className="text-center max-w-xl mx-auto">
-                <h3 className="text-xl font-bold mb-4">{approach.title}</h3>
-                <p className="text-muted-foreground text-justify">
-                  {approach.description}
-                </p>
-              </div>
-            ))}
+            {approaches.map((approach, index) => {
+              // Define icons for each approach
+              const icons = [
+                'mdi:clipboard-list-outline', // Careful planning
+                'iconoir:agile', // Scrum
+                'mdi:shield-check', // Quality Focus
+                'mdi:rocket-launch', // CI/CD for continuous feedback
+                'mdi:trophy', // Exceeding expectations
+              ];
+
+              return (
+                <div key={index} className="text-center max-w-xl mx-auto">
+                  <div className="flex items-center justify-center gap-3 mb-4">
+                    <Icon
+                      icon={icons[index]}
+                      className="w-7 h-7 text-primary"
+                    />
+                    <h3 className="text-xl font-bold">{approach.title}</h3>
+                  </div>
+                  <p className="text-muted-foreground text-justify">
+                    {approach.description}
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: '%s | Accenture Bachelor Application Management System',
   },
   description:
-    "A full-stack web application system that transformed Accenture's bachelor thesis application process. Built with Next.js, TypeScript, and PostgreSQL, the solution includes a student-facing application portal and an administrative dashboard, reducing manual processing time and ensuring GDPR compliance.",
+    'A website showcasing our bachelor project, done in collaboration with Accenture. We built a full-stack web application that modernized their bachelor thesis application process. Using Next.js, TypeScript, and PostgreSQL, the system features a student-facing portal and an administrative dashboard, streamlining workflows, reducing manual processing, and ensuring GDPR compliance.',
   keywords: [
     'Next.js',
     'TypeScript',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Accenture Bachelor Application Management System',
     description:
-      "A full-stack web application system that digitally transformed Accenture's bachelor thesis application process. Built with Next.js, TypeScript, and PostgreSQL.",
+      "A full-stack web application system that streamlines Accenture's bachelor thesis application process. Built with Next.js, TypeScript, and PostgreSQL.",
     url: baseUrl,
     siteName: 'Accenture Bachelor Application Management System',
     locale: 'en_US',
@@ -47,9 +47,6 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
     },
   },
 };
