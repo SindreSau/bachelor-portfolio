@@ -1,5 +1,6 @@
 import { TechIconCard } from '@/components/ui/tech-icon-card';
 import { technologies } from '@/config/technologies';
+import { Icon } from '@iconify/react';
 
 export function HeroSection() {
   return (
@@ -7,6 +8,12 @@ export function HeroSection() {
       <h1 className="text-2xl md:text-5xl font-bold mb-4">
         Application Management System
       </h1>
+
+      <div className="flex items-center justify-center w-fit mx-auto gap-2 p-2 bg-warning/10 rounded-md mb-4">
+        <Icon icon="mdi:construction-outline" className="text-warning" />
+        <span className="font-medium">Currently under construction</span>
+      </div>
+
       <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-4">
         Streamlined <strong>Accenture</strong>&apos; bachelor thesis application
         process. Includes a student-facing application portal and an
