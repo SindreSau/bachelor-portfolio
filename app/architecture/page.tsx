@@ -1,7 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
-import { Card } from '@/components/ui/card';
 import { PageLayout } from '@/components/ui/page-layout';
 
 export const metadata: Metadata = {
