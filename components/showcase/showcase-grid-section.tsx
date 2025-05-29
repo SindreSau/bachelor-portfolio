@@ -1,19 +1,102 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { AvatarImage } from '@/components/ui/avatar-image';
 import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
 
 interface ShowcaseGridSectionProps {
   className?: string;
 }
 
 export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add('(max-width: 767px)', () => {
+      if (sectionRef.current && cardsRef.current) {
+        // Get all card elements
+        const cards = gsap.utils.toArray('.showcase-card');
+
+        // Set initial state for cards
+        gsap.set(cards, { opacity: 0, y: 50 });
+
+        // Create scroll-triggered animation
+        gsap.fromTo(
+          cards,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top 97%',
+              end: 'bottom 85%',
+              scrub: true,
+              // markers: true, // Consider removing markers for production
+            },
+          },
+        );
+      }
+    });
+
+    mm.add('(min-width: 768px)', () => {
+      // Desktop animation following hero section pattern
+      if (sectionRef.current && cardsRef.current) {
+        const cards = gsap.utils.toArray('.showcase-card');
+
+        // Set initial state for cards
+        gsap.set(cards, { opacity: 0, y: 50 });
+
+        // Create timeline with hero-like stagger pattern
+        const tl = gsap.timeline({
+          defaults: { ease: 'power3.out' },
+          delay: 0.9, // Start after hero animation completes
+        });
+
+        tl.fromTo(
+          cards,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            stagger: 0.1,
+          },
+        );
+      }
+    });
+
+    return () => {
+      mm.revert();
+    };
+  }, []);
+
   return (
-    <section className={cn('py-8 px-6 bg-background', className)}>
+    <section
+      ref={sectionRef}
+      className={cn('py-8 px-6 bg-background', className)}
+    >
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/team" className="block group">
+        <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Link
+            href="/team"
+            className="block group showcase-card"
+            style={{ opacity: 0 }}
+          >
             <Card
               heading="The Team"
               description="Meet the three IT students from OsloMet behind the system"
@@ -60,7 +143,11 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
             </Card>
           </Link>
 
-          <Link href="/architecture" className="block group">
+          <Link
+            href="/architecture"
+            className="block group showcase-card"
+            style={{ opacity: 0 }}
+          >
             <Card
               heading="System Architecture"
               description="Explore the technical architecture, system design patterns, and infrastructure decisions that power the application management platform."
@@ -83,7 +170,11 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
           </Link>
 
           <div className="md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Link href="/admin-dashboard" className="block group">
+            <Link
+              href="/admin-dashboard"
+              className="block group showcase-card"
+              style={{ opacity: 0 }}
+            >
               <Card
                 heading="Admin Dashboard"
                 description="A comprehensive administrative interface for managing applications, reviewing submissions, and tracking the entire process."
@@ -105,7 +196,11 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
               </Card>
             </Link>
 
-            <Link href="/application-portal" className="block group">
+            <Link
+              href="/application-portal"
+              className="block group showcase-card"
+              style={{ opacity: 0 }}
+            >
               <Card
                 heading="Application Portal"
                 description="An intuitive and accessible student-facing portal for submitting thesis applications, uploading documents, and tracking application status."
