@@ -21,68 +21,30 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const mm = gsap.matchMedia();
+    // Single animation for all screen sizes following hero section pattern
+    if (sectionRef.current && cardsRef.current) {
+      const cards = gsap.utils.toArray('.showcase-card');
 
-    mm.add('(max-width: 767px)', () => {
-      if (sectionRef.current && cardsRef.current) {
-        // Get all card elements
-        const cards = gsap.utils.toArray('.showcase-card');
+      // Set initial state for cards
+      gsap.set(cards, { opacity: 0, y: 50 });
 
-        // Set initial state for cards
-        gsap.set(cards, { opacity: 0, y: 50 });
+      // Create timeline with hero-like stagger pattern
+      const tl = gsap.timeline({
+        defaults: { ease: 'power3.out' },
+        delay: 0.9, // Start after hero animation completes
+      });
 
-        // Create scroll-triggered animation
-        gsap.fromTo(
-          cards,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              start: 'top 97%',
-              end: 'bottom 85%',
-              scrub: true,
-              // markers: true, // Consider removing markers for production
-            },
-          },
-        );
-      }
-    });
-
-    mm.add('(min-width: 768px)', () => {
-      // Desktop animation following hero section pattern
-      if (sectionRef.current && cardsRef.current) {
-        const cards = gsap.utils.toArray('.showcase-card');
-
-        // Set initial state for cards
-        gsap.set(cards, { opacity: 0, y: 50 });
-
-        // Create timeline with hero-like stagger pattern
-        const tl = gsap.timeline({
-          defaults: { ease: 'power3.out' },
-          delay: 0.9, // Start after hero animation completes
-        });
-
-        tl.fromTo(
-          cards,
-          { opacity: 0, y: 50 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            stagger: 0.1,
-          },
-        );
-      }
-    });
-
-    return () => {
-      mm.revert();
-    };
+      tl.fromTo(
+        cards,
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+        },
+      );
+    }
   }, []);
 
   return (
