@@ -5,6 +5,7 @@ import { GeistMono } from 'geist/font/mono';
 import { Navbar } from '../components/ui/nav';
 import Footer from '../components/ui/footer';
 import { baseUrl } from './sitemap';
+import { ScrollToTopButton } from '../components/ui/scroll-to-top-button'; // Import the new component
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -64,6 +65,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1 max-w-6xl mx-auto">{children}</main>
         <Footer />
+        <ScrollToTopButton />
       </body>
     </html>
   );

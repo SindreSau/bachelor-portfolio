@@ -34,7 +34,7 @@ function FooterProfile({
           />
           <div>
             <h4 className="font-semibold text-foreground text-lg">{name}</h4>
-            <p className="text-sm text-muted-foreground">Developer</p>
+            <p className="text-sm text-muted-foreground">Fullstack Developer</p>
           </div>
         </div>
         <div className="flex items-start  w-full space-x-4">
