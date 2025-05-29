@@ -39,8 +39,20 @@ export const metadata: Metadata = {
       "A full-stack web application system that streamlines Accenture's bachelor thesis application process. Built with Next.js, TypeScript, and PostgreSQL.",
     url: baseUrl,
     siteName: 'Accenture Bachelor Application Management System',
+    images: [
+      {
+        url: '/opengraph-image.png',
+      },
+    ],
     locale: 'en_US',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Accenture Bachelor Application Management System',
+    description:
+      "A full-stack web application system that streamlines Accenture's bachelor thesis application process. Built with Next.js, TypeScript, and PostgreSQL.",
+    images: ['/twitter-image.png'],
   },
   robots: {
     index: true,
