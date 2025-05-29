@@ -152,8 +152,8 @@ const ApplicationPortalPage = () => {
           <ul className="list-disc space-y-2 pl-5">
             <li>
               <strong>Engage the Students:</strong> Some marketing stuff is
-              nice, but allow the students to skip it by clicking "Apply Now" at
-              the top.
+              nice, but allow the students to skip it by clicking &quot;Apply
+              Now&quot; at the top.
             </li>
             <li>
               <strong>Task Previews:</strong> Rich text descriptions with a

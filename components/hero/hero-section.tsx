@@ -1,6 +1,5 @@
 import { TechIconCard } from '@/components/ui/tech-icon-card';
 import { technologies } from '@/config/technologies';
-import { Icon } from '@iconify/react';
 import Link from 'next/link';
 
 export function HeroSection() {

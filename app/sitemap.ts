@@ -1,7 +1,14 @@
-export const baseUrl = 'https://portfolio-blog-starter.vercel.app';
+export const baseUrl = 'https://bachelorproject.sindresau.me';
 
 export default async function sitemap() {
-  const routes = ['', '/blog'].map((route) => ({
+  const routes = [
+    '',
+    '/admin-dashboard',
+    '/application-portal',
+    '/architecture',
+    '/team',
+    '/video-overview',
+  ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));
