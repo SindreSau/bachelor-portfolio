@@ -73,6 +73,8 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
                     alt="System Architecture Diagram"
                     width={600}
                     height={400}
+                    quality={30}
+                    loading="lazy"
                     className="w-full h-full rounded-lg border border-border"
                   />
                 </div>
@@ -94,6 +96,8 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
                       alt="Admin Dashboard Screenshot"
                       width={1000}
                       height={600}
+                      quality={30}
+                      loading="lazy"
                       className="w-full h-full object-cover rounded"
                     />
                   </div>
@@ -114,6 +118,8 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
                       alt="Application Portal Screenshot"
                       width={1000}
                       height={600}
+                      quality={30}
+                      loading="lazy"
                       className="w-full h-full object-cover rounded"
                     />
                   </div>

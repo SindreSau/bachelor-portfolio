@@ -50,6 +50,8 @@ export function AvatarImage({
         alt={alt}
         width={imageDimensions.width}
         height={imageDimensions.height}
+        quality={30}
+        loading="lazy"
         className="w-full h-full object-cover"
       />
     </div>

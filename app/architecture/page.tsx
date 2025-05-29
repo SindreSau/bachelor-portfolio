@@ -211,8 +211,10 @@ export default function ArchitecturePage() {
               <Image
                 src="/images/architecture/architecture-diagram.png"
                 alt="System Architecture Diagram"
-                width={1200}
-                height={800}
+                width={3290}
+                height={1854}
+                priority
+                quality={40}
                 className="w-full h-auto rounded-lg"
               />
             </div>
@@ -287,8 +289,10 @@ export default function ArchitecturePage() {
               <Image
                 src="/images/architecture/authentication-architecture.png"
                 alt="Authentication Architecture Diagram"
-                width={1200}
-                height={800}
+                width={3000}
+                height={1226}
+                loading="lazy"
+                quality={30}
                 className="w-full h-auto rounded-lg"
               />
             </div>
