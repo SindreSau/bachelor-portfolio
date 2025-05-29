@@ -53,7 +53,7 @@ export function PageLayout({ children, className }: PageLayoutProps) {
       </div>
 
       {/* Page Content */}
-      <div className="max-w-6xl mx-auto md:px-0">{children}</div>
+      <div className="max-w-6xl mx-auto md:px-8 px-4">{children}</div>
     </div>
   );
 }

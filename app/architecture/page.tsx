@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { Icon } from '@iconify/react';
 import { PageLayout } from '@/components/ui/page-layout';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'System Architecture',
@@ -12,33 +13,47 @@ export const metadata: Metadata = {
 export default function ArchitecturePage() {
   const architectureFeatures = [
     {
-      title: 'Multi-Repository Architecture',
+      title: 'Two Separate Applications',
       description:
-        'The student portal and admin dashboard are split into separate repositories, enabling independent deployments, fault isolation, and improved security by design.',
+        'We built the student portal and admin dashboard as completely separate projects. This means if one breaks, the other keeps working, and we can update them independently without affecting each other.',
       icon: 'mdi:source-repository-multiple',
     },
     {
-      title: 'Cross-Application Communication',
+      title: 'Communication Between Apps',
       description:
-        'A shared REST API layer with API key authentication handles tasks, file storage, and application state. Real-time content syncing is achieved alongside static generation via Incremental Static Regeneration (ISR).',
+        'The two apps talk to each other through a few REST API endpoints. The student portal can submit applications and the admin dashboard can create new tasks. We use API keys to ensure only requests from our applications are valid.',
       icon: 'mdi:api',
     },
     {
-      title: 'Rendering Optimization',
-      description:
-        'Combines Static Site Generation (SSG) and Incremental Static Regeneration (ISR) for portal speed and SEO, while using Server-Side Rendering (SSR) and Client-Side Rendering (CSR) for dynamic dashboard content. Type-safe server actions handle admin-side database interactions.',
+      title: 'Rendering for Performance',
+      description: (
+        <>
+          We ensure performance by pre-building pages that can be prebuilt, and
+          only using CSR where necessary. When admins add new tasks, the portal
+          can rebuild the page displaying the tasks without rebuilding the
+          entire app thanks to{' '}
+          <Link
+            className="link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://nextjs.org/docs/app/guides/incremental-static-regeneration"
+          >
+            ISR
+          </Link>
+        </>
+      ),
       icon: 'mdi:web',
     },
     {
-      title: 'Robust Security Model',
+      title: 'Multiple Security Layers',
       description:
-        'Kinde authentication, API key enforcement, middleware redundancy, a secure Data Access Layer (DAL), and structured logging using Pino ensure a strong security posture.',
+        'We use Kinde for admin login (email + OTP login), API keys to protect our endpoints, and multiple security checks throughout the code. Everything gets logged using Pino for structured monitoring.',
       icon: 'mdi:shield-check',
     },
     {
-      title: 'Deployment-Ready Infrastructure',
+      title: 'Easy to Deploy Anywhere',
       description:
-        'Dockerized services with CI/CD pipelines ensure smooth deployments across environments, minimizing friction when moving to production or changing hosts.',
+        'We used Docker containers from day one, ensuring the apps run the same way locally and in production. This would ensure a smooth deployment process to any cloud provider and easy setup of development environments.',
       icon: 'logos:docker-icon',
     },
   ];
@@ -50,18 +65,18 @@ export default function ArchitecturePage() {
         {
           name: 'Next.js 15',
           description:
-            'Full-stack React framework with SSG, CSG, SSR, ISR, and server actions',
+            'React framework that lets us build both frontend and backend in one project, with a bunch of performance optimizations.',
           icon: 'logos:nextjs-icon',
         },
         {
           name: 'TypeScript',
           description:
-            'End-to-end type safety across frontend, backend, and database',
+            'Makes our code safer by catching errors before they happen, gives us better autocomplete and ensures easy project takeover.',
           icon: 'logos:typescript-icon',
         },
         {
           name: 'React',
-          description: 'Component-based UI with hooks and modern patterns',
+          description: 'Do we even need to explain this one?',
           icon: 'logos:react',
         },
       ],
@@ -72,19 +87,19 @@ export default function ArchitecturePage() {
         {
           name: 'PostgreSQL',
           description:
-            'Relational database with a rich feature set and strong community',
+            'Reliable database that allows us to store data with complex relationships, like applications, students, and tasks.',
           icon: 'logos:postgresql',
         },
         {
           name: 'Prisma',
           description:
-            'Type-safe ORM with auto-generated queries, schema migrations, and excellent DX',
+            'Makes database queries type-safe and way easier to write than raw SQL. Auto-generates TypeScript types from our database schema',
           icon: 'simple-icons:prisma',
         },
         {
           name: 'Azure Blob Storage',
           description:
-            'Cloud-native object storage for handling user files and documents',
+            'File storage for CV and grade documents that students upload',
           icon: 'devicon:azure',
         },
       ],
@@ -95,13 +110,14 @@ export default function ArchitecturePage() {
         {
           name: 'Kinde',
           description:
-            'Enterprise authentication with email + OTP verification',
-          icon: 'simple-icons:kinde',
+            "Handles user authentication for us, which we believe to be safer than us building it ourselves. All we need is supported within Kinde's free tier.",
+          icon: 'arcticons:security',
         },
         {
           name: 'Pino',
-          description: 'Structured logging for audit trails and monitoring',
-          icon: 'mdi:tree',
+          description:
+            'Structured logging to ensure good monitoring and debugging in production',
+          icon: 'simple-icons:pino',
         },
       ],
     },
@@ -110,13 +126,21 @@ export default function ArchitecturePage() {
       technologies: [
         {
           name: 'Tailwind CSS',
-          description: 'Utility-first CSS with design system consistency',
+          description:
+            'CSS framework that makes styling fast to write, performant and have full control over the design.',
           icon: 'logos:tailwindcss-icon',
         },
         {
           name: 'shadcn/ui',
-          description: 'Accessible component library with full customization',
+          description:
+            'Pre-built components that are accessible and look professional out of the box while still being fully customizable.',
           icon: 'simple-icons:shadcnui',
+        },
+        {
+          name: 'TipTap',
+          description:
+            'Rich text editor that students can use to write their cover letters without loosing expressiveness.',
+          icon: 'simple-icons:tiptap',
         },
       ],
     },
@@ -125,12 +149,14 @@ export default function ArchitecturePage() {
       technologies: [
         {
           name: 'Zod',
-          description: 'Runtime schema validation and type inference',
+          description:
+            'Validates form data on both frontend and backend at runtime, ensuring data integrity and type safety.',
           icon: 'simple-icons:zod',
         },
         {
           name: 'React Hook Form',
-          description: 'Performance-optimized form handling with validation',
+          description:
+            'Makes complex forms with file uploads and validation much easier to build and maintain.',
           icon: 'simple-icons:reacthookform',
         },
       ],
@@ -140,17 +166,20 @@ export default function ArchitecturePage() {
       technologies: [
         {
           name: 'Jest',
-          description: 'Unit testing for server actions and utilities',
+          description:
+            'Used for unit tests of all server actions and helper functions.',
           icon: 'logos:jest',
         },
         {
           name: 'Playwright',
-          description: 'Cross-browser E2E testing for critical user flows',
+          description:
+            'Simulates real users clicking through the app to test complete workflows.',
           icon: 'logos:playwright',
         },
         {
           name: 'ESLint + Prettier',
-          description: 'Code quality enforcement and formatting',
+          description:
+            'Keeps our code clean and consistently formatted across the team.',
           icon: 'logos:eslint',
         },
       ],
@@ -161,19 +190,19 @@ export default function ArchitecturePage() {
     <PageLayout>
       <div className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="pt-6 pb-8 px-6 text-center">
+        <section className="pt-6 pb-8  text-center">
           <h1 className="text-2xl md:text-5xl font-bold mb-4">
             System Architecture
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto">
-            Our architecture is thoughtfully designed around advanced Next.js
-            features, strong security practices, and deployment readiness - all
-            considered from day one of development.
+            Our architecture is built around modern Next.js features, strong
+            security practices, and easy deployment - all planned from the very
+            beginning of development.
           </p>
         </section>
 
         {/* Architecture Overview */}
-        <section className="py-8 px-6 bg-accent/10">
+        <section className="py-8  bg-accent/10">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">
               Architecture Overview
@@ -199,7 +228,7 @@ export default function ArchitecturePage() {
                       icon={feature.icon}
                       className="w-6 h-6 text-primary"
                     />
-                    <h3 className="text-lg font-semibold">{feature.title}</h3>
+                    <h3 className="text-base font-semibold">{feature.title}</h3>
                   </div>
                   <p className="text-muted-foreground text-sm">
                     {feature.description}
@@ -211,7 +240,7 @@ export default function ArchitecturePage() {
         </section>
 
         {/* Technology Stack */}
-        <section className="py-8 px-6">
+        <section className="py-8 ">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">
               Technology Stack
@@ -249,7 +278,7 @@ export default function ArchitecturePage() {
         </section>
 
         {/* Security Architecture */}
-        <section className="py-8 px-6 bg-accent/10">
+        <section className="py-8  bg-accent/10">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8">
               Security Architecture
@@ -264,9 +293,10 @@ export default function ArchitecturePage() {
               />
             </div>
             <p className="text-muted-foreground mb-8 text-center max-w-4xl mx-auto">
-              Dashboard security with Kinde authentication, API key for API
-              endpoint security, Next.js middleware + Data Access Layer
-              redundancy, and comprehensive audit logging.
+              The admin dashboard is protected with Kinde authentication (email
+              + OTP). Our API endpoints use API keys to verify requests come
+              from our apps. We also have multiple security checks in the code
+              and log everything for audit purposes.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6">
@@ -275,7 +305,7 @@ export default function ArchitecturePage() {
                   Authentication Flow
                 </h3>
                 <ul className="text-muted-foreground text-sm space-y-2">
-                  <li>• Email + OTP verification via Kinde</li>
+                  <li>• Email + verification code via Kinde</li>
                   <li>• Invitation-only dashboard access</li>
                   <li>• Server-side session management</li>
                   <li>• Automatic token refresh</li>
@@ -283,11 +313,13 @@ export default function ArchitecturePage() {
               </div>
 
               <div className="p-6 rounded-lg border border-border bg-card text-center w-full max-w-md">
-                <h3 className="text-lg font-semibold mb-3">Data Protection</h3>
+                <h3 className="text-lg font-semibold mb-3">
+                  Endpoint Protection
+                </h3>
                 <ul className="text-muted-foreground text-sm space-y-2">
                   <li>• API key authentication for endpoints</li>
-                  <li>• Structured audit logging with Pino</li>
-                  <li>• Focus on GDPR compliance</li>
+                  <li>• Env variable in each application to store API keys</li>
+                  <li>• Detailed audit logging with Pino</li>
                 </ul>
               </div>
             </div>

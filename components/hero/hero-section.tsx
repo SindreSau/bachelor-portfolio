@@ -1,12 +1,13 @@
 import { TechIconCard } from '@/components/ui/tech-icon-card';
 import { technologies } from '@/config/technologies';
 import { Icon } from '@iconify/react';
+import Link from 'next/link';
 
 export function HeroSection() {
   return (
     <section className="pt-12 pb-8 px-6 text-center bg-background text-foreground">
-      <h1 className="text-2xl md:text-5xl font-bold mb-4">
-        Application Management System
+      <h1 className="text-2xl md:text-4xl font-bold mb-4">
+        Streamlining Accenture&apos;s Bachelor Thesis Application Process
       </h1>
 
       <div className="flex items-center justify-center w-fit mx-auto gap-2 p-2 bg-warning/10 rounded-md mb-4">
@@ -14,48 +15,24 @@ export function HeroSection() {
         <span className="font-medium">Currently under construction</span>
       </div>
 
-      <p className="text-lg md:text-xl text-muted-foreground max-w-4xl mx-auto mb-4">
-        Streamlined <strong>Accenture</strong>&apos; bachelor thesis application
-        process. Includes a student-facing application portal and an
-        administrative dashboard, reducing manual processing time and ensuring
-        GDPR compliance.
+      <p className=" md:text-lg text-muted-foreground max-w-4xl mx-auto mb-4">
+        We aimed to simplify <strong>Accenture</strong>&apos;s bachelor project
+        application process by developing a user-friendly student portal paired
+        with an administrative dashboard. This combination modernizes the
+        workflow, reduces manual tasks, and ensures GDPR compliance.
       </p>
-      <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-4">
-        Features include application management, collaborative review tools,
-        automated email confirmations, comprehensive accessibility support with
-        100/100 PageSpeed Insights scores and much more.
+      <p className="md:text-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+        For a quick introduction, feel free to watch a{' '}
+        <Link className="link" href="/video-overview">
+          video overview
+        </Link>{' '}
+        of the main user flows, or learn more about the project by exploring the
+        cards below.
       </p>
       <div className="flex flex-wrap justify-center gap-4 items-center">
-        <div className="flex flex-wrap justify-center gap-3">
-          <TechIconCard
-            icon={technologies.nextjs.icon}
-            name={technologies.nextjs.name}
-          />
-          <TechIconCard
-            icon={technologies.typescript.icon}
-            name={technologies.typescript.name}
-          />
-          <TechIconCard
-            icon={technologies.postgresql.icon}
-            name={technologies.postgresql.name}
-          />
-          <TechIconCard
-            icon={technologies.azureBlobStorage.icon}
-            name={technologies.azureBlobStorage.name}
-          />
-          <TechIconCard
-            icon={technologies.docker.icon}
-            name={technologies.docker.name}
-          />
-          <TechIconCard
-            icon={technologies.tailwindcss.icon}
-            name={technologies.tailwindcss.name}
-          />
-          <TechIconCard
-            icon={technologies.prismaORM.icon}
-            name={technologies.prismaORM.name}
-          />
-        </div>
+        {Object.values(technologies).map((tech) => (
+          <TechIconCard key={tech.name} icon={tech.icon} name={tech.name} />
+        ))}
       </div>
     </section>
   );

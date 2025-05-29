@@ -17,9 +17,9 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
             <Card
               heading="The Team"
               description="Meet the three IT students from OsloMet behind the system"
-              className="transition-all duration-300 group-hover:bg-accent/50  flex flex-col justify-between"
+              className="transition-all duration-300 group-hover:bg-card-hover  flex flex-col justify-between"
             >
-              <div className="flex flex-col items-center space-y-4 lg:flex-row lg:justify-center lg:space-y-0 lg:space-x-12 mb-4">
+              <div className="flex flex-col items-center space-y-4 lg:flex-row lg:justify-center lg:justify-items-center h-full lg:space-y-0 lg:space-x-12 mb-4">
                 <div className="text-center">
                   <AvatarImage
                     src="/images/team/Sindre Sauarlia.jpg"
@@ -64,7 +64,7 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
             <Card
               heading="System Architecture"
               description="Explore the technical architecture, system design patterns, and infrastructure decisions that power the application management platform."
-              className="transition-all duration-300 group-hover:bg-accent/50  flex flex-col justify-between"
+              className="transition-all duration-300 group-hover:bg-card-hover  flex flex-col justify-between"
             >
               <div className="flex justify-center mb-4">
                 <div className="w-full max-w-lg">
@@ -85,7 +85,7 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
               <Card
                 heading="Admin Dashboard"
                 description="A comprehensive administrative interface for managing applications, reviewing submissions, and tracking the entire process."
-                className="transition-all duration-300 group-hover:bg-accent/50 h-full"
+                className="transition-all duration-300 group-hover:bg-card-hover h-full"
               >
                 <div className="p-4 rounded-lg">
                   <div className="aspect-[18/12]">
@@ -105,7 +105,7 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
               <Card
                 heading="Application Portal"
                 description="An intuitive and accessible student-facing portal for submitting thesis applications, uploading documents, and tracking application status."
-                className="transition-all duration-300 group-hover:bg-accent/50 h-full"
+                className="transition-all duration-300 group-hover:bg-card-hover h-full"
               >
                 <div className="p-4 rounded-lg">
                   <div className="aspect-[18/12]">

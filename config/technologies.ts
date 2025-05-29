@@ -12,6 +12,10 @@ export const technologies: Technologies = {
     name: 'Next.js',
     icon: 'logos:nextjs-icon',
   },
+  react: {
+    name: 'React',
+    icon: 'logos:react',
+  },
   typescript: {
     name: 'TypeScript',
     icon: 'logos:typescript-icon',
