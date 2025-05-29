@@ -136,6 +136,14 @@ export function VideoPlayer({
     return `${minutes}:${seconds}`;
   };
 
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Only toggle play if the click is directly on the overlay div itself,
+    // and not on any of its children (like control buttons or the progress bar).
+    if (e.target === e.currentTarget) {
+      togglePlay();
+    }
+  };
+
   return (
     <div className={cn('space-y-4', className)}>
       <div className="space-y-2">
@@ -171,6 +179,7 @@ export function VideoPlayer({
             'absolute inset-0 bg-black/20 transition-opacity duration-300',
             showControls || !isPlaying ? 'opacity-100' : 'opacity-0',
           )}
+          onClick={handleOverlayClick}
         >
           {/* Center Play Button */}
           {!isPlaying && (
