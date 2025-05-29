@@ -49,6 +49,8 @@ export default function VideoPage() {
               title={video.title}
               description={video.description}
               className="max-w-4xl mx-auto my-6"
+              width={1280}
+              height={720}
             />
           ))}
         </div>

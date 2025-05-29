@@ -28,6 +28,8 @@ interface VideoPlayerProps {
   title: string;
   description: string;
   className?: string;
+  width?: number;
+  height?: number;
 }
 
 export function VideoPlayer({
@@ -35,6 +37,8 @@ export function VideoPlayer({
   title,
   description,
   className,
+  width = 640,
+  height = 360,
 }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -178,7 +182,7 @@ export function VideoPlayer({
       >
         <video
           ref={videoRef}
-          className="w-full h-auto"
+          className="w-full h-full object-cover"
           preload="metadata"
           muted={isMuted}
           playsInline
@@ -188,6 +192,8 @@ export function VideoPlayer({
           poster={`${src.replace('.mp4', '-poster.jpg')}`}
           onTimeUpdate={handleTimeUpdate}
           onLoadedMetadata={handleLoadedMetadata}
+          width={width}
+          height={height}
         >
           <source src={src} type="video/mp4" />
           Your browser does not support the video tag.
