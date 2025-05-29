@@ -140,7 +140,7 @@ export default function ArchitecturePage() {
           name: 'TipTap',
           description:
             'Rich text editor that students can use to write their cover letters without loosing expressiveness.',
-          icon: 'simple-icons:tiptap',
+          icon: 'f7:doc-richtext',
         },
       ],
     },
