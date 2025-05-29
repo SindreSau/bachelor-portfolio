@@ -5,7 +5,6 @@ import { technologies } from '@/config/technologies';
 import Link from 'next/link';
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { Button } from '@/components/ui/button';
 import { Icon } from '@iconify/react';
 
 export function HeroSection() {
