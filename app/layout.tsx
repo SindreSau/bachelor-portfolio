@@ -2,6 +2,7 @@ import './global.css';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
+import Script from 'next/script'; // Import the Script component
 import { Navbar } from '../components/ui/nav';
 import Footer from '../components/ui/footer';
 import { baseUrl } from './sitemap';
@@ -78,6 +79,11 @@ export default function RootLayout({
         <main className="flex-1 max-w-6xl mx-auto">{children}</main>
         <Footer />
         <ScrollToTopButton />
+        <Script
+          defer
+          src="https://umami.sindresau.me/script.js"
+          data-website-id="56d382f9-a1bc-4747-a957-8322acc1d16a"
+        />
       </body>
     </html>
   );
