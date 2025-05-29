@@ -50,8 +50,8 @@ const AdminDashboardPage = () => {
               <Image
                 src="/images/admin_dashboard/dashboard-application-table-view.png"
                 alt="Dashboard Application Table Page - Overview of all applications"
-                width={1920}
-                height={1080}
+                width={3756}
+                height={2520}
                 quality={30}
                 priority
                 className="rounded-lg shadow-md"
@@ -68,8 +68,8 @@ const AdminDashboardPage = () => {
               <Image
                 src="/images/admin_dashboard/application-details-page.png"
                 alt="Application Details Page - In-depth view of a single application"
-                width={1920}
-                height={1080}
+                width={3752}
+                height={2516}
                 quality={30}
                 loading="lazy"
                 className="rounded-lg shadow-md"
@@ -98,8 +98,8 @@ const AdminDashboardPage = () => {
             <Image
               src="/images/admin_dashboard/task-creating-page.png"
               alt="Task Management Page - Creating and defining bachelor project tasks"
-              width={1920}
-              height={1080}
+              width={1544}
+              height={1391}
               quality={30}
               loading="lazy"
               className="rounded-lg shadow-md"
@@ -146,8 +146,8 @@ const AdminDashboardPage = () => {
             <Image
               src="/images/admin_dashboard/hover-shows-reviewer.png"
               alt="Hover shows reviewer"
-              width={1200}
-              height={800}
+              width={638}
+              height={582}
               quality={30}
               loading="lazy"
               className="rounded-lg shadow-md mx-auto max-w-sm"
@@ -300,8 +300,8 @@ const AdminDashboardPage = () => {
             <Image
               src="/images/admin_dashboard/admin-dashboard-themes.png"
               alt="Admin Dashboard Themes"
-              width={1920}
-              height={1080}
+              width={1888}
+              height={1270}
               quality={30}
               loading="lazy"
               className="rounded-lg shadow-md mx-auto"
