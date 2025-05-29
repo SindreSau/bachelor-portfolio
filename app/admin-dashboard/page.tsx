@@ -18,7 +18,7 @@ const AdminDashboardPage = () => {
     <PageLayout>
       <section className="space-y-8 py-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             Admin Dashboard
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -27,11 +27,11 @@ const AdminDashboardPage = () => {
           </p>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <LayoutDashboard className="mr-3 h-7 w-7" /> Overview
         </h2>
-        <div className="space-y-4 pl-10">
-          <h3 className="flex items-center text-2xl font-semibold">
+        <div className="space-y-4 md:pl-10 pl-4">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
             <Layers className="mr-2 h-6 w-6" /> Handling applications
           </h3>
           <p>
@@ -54,12 +54,8 @@ const AdminDashboardPage = () => {
                 height={2520}
                 quality={30}
                 priority
-                className="rounded-lg shadow-md"
+                className="rounded-lg shadow-md w-full h-auto"
               />
-              <p className="text-sm text-muted-foreground mt-2 text-center">
-                The main dashboard view, providing a sortable and filterable
-                table of all submitted applications.
-              </p>
             </div>
             <div>
               <h4 className="text-lg font-medium mb-2 text-center">
@@ -72,17 +68,12 @@ const AdminDashboardPage = () => {
                 height={2516}
                 quality={30}
                 loading="lazy"
-                className="rounded-lg shadow-md"
+                className="rounded-lg shadow-md w-full h-auto"
               />
-              <p className="text-sm text-muted-foreground mt-2 text-center">
-                Accessible from the table, this page shows all information for a
-                specific application, including documents, ratings, and
-                comments.
-              </p>
             </div>
           </div>
 
-          <h3 className="flex items-center text-2xl font-semibold mt-8">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-8">
             <ListChecks className="mr-2 h-6 w-6" /> Managing tasks
           </h3>
           <p>
@@ -102,7 +93,7 @@ const AdminDashboardPage = () => {
               height={1391}
               quality={30}
               loading="lazy"
-              className="rounded-lg shadow-md"
+              className="rounded-lg shadow-md w-full h-auto"
             />
             <p className="text-sm text-muted-foreground mt-2 text-center">
               Administrators can easily create, edit, and manage bachelor
@@ -111,10 +102,10 @@ const AdminDashboardPage = () => {
           </div>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Users className="mr-3 h-7 w-7" /> Collaboration Features
         </h2>
-        <div className="space-y-4 pl-10">
+        <div className="space-y-4 md:pl-10 pl-4">
           <p>
             Effective collaboration is key to a successful review process. The
             dashboard incorporates several features to facilitate teamwork:
@@ -150,15 +141,15 @@ const AdminDashboardPage = () => {
               height={582}
               quality={30}
               loading="lazy"
-              className="rounded-lg shadow-md mx-auto max-w-sm"
+              className="rounded-lg shadow-md mx-auto max-w-sm w-full h-auto"
             />
           </div>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Zap className="mr-3 h-7 w-7" /> Efficiency Through Design
         </h2>
-        <div className="space-y-4 pl-10">
+        <div className="space-y-4 md:pl-10 pl-4">
           <p>The dashboard is designed to maximize administrator efficiency:</p>
           <ul className="list-disc space-y-2 pl-5">
             <li>
@@ -183,13 +174,13 @@ const AdminDashboardPage = () => {
           </ul>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Cog className="mr-3 h-7 w-7" /> Technical Decisions That Matter to
           Users
         </h2>
-        <div className="space-y-6 pl-10">
+        <div className="space-y-6 md:pl-10 pl-4">
           <div>
-            <h3 className="flex items-center text-2xl font-semibold">
+            <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
               <FileText className="mr-2 h-6 w-6" /> File Handling
             </h3>
             <p className="mt-2">
@@ -215,7 +206,7 @@ const AdminDashboardPage = () => {
             </ul>
           </div>
           <div>
-            <h3 className="flex items-center text-2xl font-semibold">
+            <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
               <RefreshCw className="mr-2 h-6 w-6" /> Real-time Updates
             </h3>
             <p className="mt-2">
@@ -243,10 +234,10 @@ const AdminDashboardPage = () => {
           </div>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Shield className="mr-3 h-7 w-7" /> Security by Design
         </h2>
-        <div className="space-y-4 pl-10">
+        <div className="space-y-4 md:pl-10 pl-4">
           <p>
             Security was an important consideration in the development of the
             Admin Dashboard:
@@ -270,10 +261,10 @@ const AdminDashboardPage = () => {
           </ul>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Palette className="mr-3 h-7 w-7" /> Esthetics and Usability
         </h2>
-        <div className="space-y-4 pl-10">
+        <div className="space-y-4 md:pl-10 pl-4">
           <p>
             Aesthetics and usability go hand-in-hand to create a pleasant and
             effective user experience:
@@ -304,7 +295,7 @@ const AdminDashboardPage = () => {
               height={1270}
               quality={30}
               loading="lazy"
-              className="rounded-lg shadow-md mx-auto"
+              className="rounded-lg shadow-md mx-auto w-full h-auto"
             />
             <p className="text-sm text-muted-foreground mt-2 text-center">
               The dashboard offers multiple themes to suit user preferences.

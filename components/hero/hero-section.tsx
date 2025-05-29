@@ -10,10 +10,10 @@ export function HeroSection() {
         Streamlining Accenture&apos;s Bachelor Thesis Application Process
       </h1>
 
-      <div className="flex items-center justify-center w-fit mx-auto gap-2 p-2 bg-warning/10 rounded-md mb-4">
+      {/* <div className="flex items-center justify-center w-fit mx-auto gap-2 p-2 bg-warning/10 rounded-md mb-4">
         <Icon icon="mdi:construction-outline" className="text-warning" />
         <span className="font-medium">Currently under construction</span>
-      </div>
+      </div> */}
 
       <p className=" md:text-lg text-muted-foreground max-w-4xl mx-auto mb-4">
         We aimed to simplify <strong>Accenture</strong>&apos;s bachelor project

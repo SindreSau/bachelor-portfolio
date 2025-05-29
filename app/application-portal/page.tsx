@@ -30,7 +30,7 @@ const ApplicationPortalPage = () => {
     <PageLayout>
       <section className="space-y-8 py-8">
         <div className="text-center">
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
             Application Portal
           </h1>
           <p className="mt-4 text-lg text-muted-foreground">
@@ -40,14 +40,14 @@ const ApplicationPortalPage = () => {
           </p>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Users2 className="mr-3 h-7 w-7" /> Student-First Experience: Solving
           the &quot;Email Problem&quot;
         </h2>
-        <div className="space-y-4 pl-10">
+        <div className="space-y-4 md:pl-10 pl-4">
           <p>
-            <strong>The Email Problem:</strong> Students used to send scattered
-            emails with attachments, never knowing if Accenture received them.
+            Students used to send scattered emails with attachments, never
+            knowing if Accenture received them.
           </p>
           <p>
             <strong>Our Solution:</strong> One clear form, instant confirmation,
@@ -72,11 +72,11 @@ const ApplicationPortalPage = () => {
           </div>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Lightbulb className="mr-3 h-7 w-7" /> Core Principles
         </h2>
-        <div className="space-y-4 pl-10">
-          <h3 className="flex items-center text-2xl font-semibold">
+        <div className="space-y-4 md:pl-10 pl-4">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
             <Brain className="mr-2 h-6 w-6" /> Reducing Cognitive Load
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -94,7 +94,7 @@ const ApplicationPortalPage = () => {
             </li>
           </ul>
 
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <Copy className="mr-2 h-6 w-6" /> Familiar Patterns
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -112,7 +112,7 @@ const ApplicationPortalPage = () => {
             </li>
           </ul>
 
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <ShieldCheck className="mr-2 h-6 w-6" /> Error Prevention & Recovery
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -137,16 +137,16 @@ const ApplicationPortalPage = () => {
               height={929}
               quality={30}
               loading="lazy"
-              className="rounded-lg shadow-md"
+              className="rounded-lg shadow-md w-full h-auto"
             />
           </div>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Route className="mr-3 h-7 w-7" /> User Journey Optimizations
         </h2>
-        <div className="space-y-4 pl-10">
-          <h3 className="flex items-center text-2xl font-semibold">
+        <div className="space-y-4 md:pl-10 pl-4">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
             <Target className="mr-2 h-6 w-6" /> Landing Page Strategy
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -172,10 +172,10 @@ const ApplicationPortalPage = () => {
               height={1100}
               quality={30}
               loading="lazy"
-              className="rounded-lg shadow-md"
+              className="rounded-lg shadow-md w-full h-auto"
             />
           </div>
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <Workflow className="mr-2 h-6 w-6" /> Form Flow Design
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -204,17 +204,17 @@ const ApplicationPortalPage = () => {
               height={1393}
               quality={30}
               loading="lazy"
-              className="rounded-lg shadow-md"
+              className="rounded-lg shadow-md w-full h-auto"
             />
           </div>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Zap className="mr-3 h-7 w-7" /> Smart Form Features & Technical
           Excellence
         </h2>
-        <div className="space-y-4 pl-10">
-          <h3 className="flex items-center text-2xl font-semibold">
+        <div className="space-y-4 md:pl-10 pl-4">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
             <GaugeCircle className="mr-2 h-6 w-6" /> Performance First
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -228,7 +228,7 @@ const ApplicationPortalPage = () => {
               people give up.
             </li>
           </ul>
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <Accessibility className="mr-2 h-6 w-6" /> Accessibility Excellence
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -248,7 +248,7 @@ const ApplicationPortalPage = () => {
               navigation.
             </li>
           </ul>
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <Smartphone className="mr-2 h-6 w-6" /> Mobile-Friendly Design
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -262,7 +262,7 @@ const ApplicationPortalPage = () => {
               fallback of course).
             </li>
           </ul>
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <FileUp className="mr-2 h-6 w-6" /> File Handling
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -278,7 +278,7 @@ const ApplicationPortalPage = () => {
               <strong>Size Limits:</strong> Clear feedback before upload fails.
             </li>
           </ul>
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <FileText className="mr-2 h-6 w-6" /> Rich Text Editor
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -307,16 +307,16 @@ const ApplicationPortalPage = () => {
               height={797}
               quality={30}
               loading="lazy"
-              className="rounded-lg shadow-md"
+              className="rounded-lg shadow-md w-full h-auto"
             />
           </div>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <MessageSquare className="mr-3 h-7 w-7" /> Lessons from User Testing
         </h2>
-        <div className="space-y-4 pl-10">
-          <h3 className="flex items-center text-2xl font-semibold">
+        <div className="space-y-4 md:pl-10 pl-4">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
             <HelpCircle className="mr-2 h-6 w-6" /> What Students Asked For
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -330,7 +330,7 @@ const ApplicationPortalPage = () => {
             </li>
             <li>Preview functionality for uploaded documents.</li>
           </ul>
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <IterationCcw className="mr-2 h-6 w-6" /> Iterative Improvements
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -348,11 +348,11 @@ const ApplicationPortalPage = () => {
           </ul>
         </div>
 
-        <h2 className="flex items-center text-3xl font-bold tracking-tight">
+        <h2 className="flex items-center justify-center sm:justify-start text-2xl sm:text-3xl font-bold tracking-tight">
           <Rocket className="mr-3 h-7 w-7" /> Real-World Impact
         </h2>
-        <div className="space-y-4 pl-10">
-          <h3 className="flex items-center text-2xl font-semibold">
+        <div className="space-y-4 md:pl-10 pl-4">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold">
             <GraduationCap className="mr-2 h-6 w-6" /> For Students
           </h3>
           <ul className="list-disc space-y-2 pl-5">
@@ -363,7 +363,7 @@ const ApplicationPortalPage = () => {
             <li>Clear process with immediate feedback.</li>
             <li>No more &quot;Did my email get lost?&quot; anxiety.</li>
           </ul>
-          <h3 className="flex items-center text-2xl font-semibold mt-6">
+          <h3 className="flex items-center justify-center sm:justify-start text-xl sm:text-2xl font-semibold mt-6">
             <School className="mr-2 h-6 w-6" /> For Universities
           </h3>
           <ul className="list-disc space-y-2 pl-5">
