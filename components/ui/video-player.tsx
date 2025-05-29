@@ -22,7 +22,10 @@ export function VideoPlayer({
   const [isMuted, setIsMuted] = useState(true);
   const [showControls, setShowControls] = useState(true);
   const [supportsFullscreen, setSupportsFullscreen] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if fullscreen is supported
@@ -101,6 +104,38 @@ export function VideoPlayer({
     setIsPlaying(false);
   };
 
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      setCurrentTime(videoRef.current.currentTime);
+    }
+  };
+
+  const handleLoadedMetadata = () => {
+    if (videoRef.current) {
+      setDuration(videoRef.current.duration);
+    }
+  };
+
+  const handleProgressClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    if (progressRef.current && videoRef.current) {
+      const progressRect = progressRef.current.getBoundingClientRect();
+      const clickPositionInPixels = event.clientX - progressRect.left;
+      const clickPositionInPercentage =
+        clickPositionInPixels / progressRect.width;
+      const newTime = videoRef.current.duration * clickPositionInPercentage;
+      videoRef.current.currentTime = newTime;
+      setCurrentTime(newTime);
+    }
+  };
+
+  const formatTime = (timeInSeconds: number) => {
+    const minutes = Math.floor(timeInSeconds / 60);
+    const seconds = Math.floor(timeInSeconds % 60)
+      .toString()
+      .padStart(2, '0');
+    return `${minutes}:${seconds}`;
+  };
+
   return (
     <div className={cn('space-y-4', className)}>
       <div className="space-y-2">
@@ -123,6 +158,8 @@ export function VideoPlayer({
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           poster={`${src.replace('.mp4', '-poster.jpg')}`}
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedMetadata={handleLoadedMetadata}
         >
           <source src={src} type="video/mp4" />
           Your browser does not support the video tag.
@@ -177,6 +214,9 @@ export function VideoPlayer({
                     <Volume2 className="w-4 h-4" />
                   )}
                 </Button>
+                <span className="text-xs font-medium text-white">
+                  {formatTime(currentTime)} / {formatTime(duration)}
+                </span>
               </div>
 
               {supportsFullscreen && (
@@ -189,6 +229,17 @@ export function VideoPlayer({
                   <Maximize2 className="w-4 h-4" />
                 </Button>
               )}
+            </div>
+            {/* Progress Bar */}
+            <div
+              ref={progressRef}
+              onClick={handleProgressClick}
+              className="w-full h-2 bg-[var(--muted)] rounded-full mt-2 cursor-pointer group"
+            >
+              <div
+                style={{ width: `${(currentTime / duration) * 100}%` }}
+                className="h-full bg-[var(--primary)] rounded-full transition-all duration-150 ease-linear group-hover:bg-[var(--ring)]"
+              />
             </div>
           </div>
         </div>
