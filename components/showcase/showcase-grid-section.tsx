@@ -7,10 +7,6 @@ import { Card } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { useLayoutEffect, useRef } from 'react';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
 interface ShowcaseGridSectionProps {
   className?: string;
@@ -21,17 +17,12 @@ export function ShowcaseGridSection({ className }: ShowcaseGridSectionProps) {
   const cardsRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    // Single animation for all screen sizes following hero section pattern
     if (sectionRef.current && cardsRef.current) {
       const cards = gsap.utils.toArray('.showcase-card');
 
-      // Set initial state for cards
-      gsap.set(cards, { opacity: 0, y: 50 });
-
-      // Create timeline with hero-like stagger pattern
       const tl = gsap.timeline({
         defaults: { ease: 'power3.out' },
-        delay: 0.9, // Start after hero animation completes
+        delay: 0.05,
       });
 
       tl.fromTo(
