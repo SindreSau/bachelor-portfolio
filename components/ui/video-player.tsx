@@ -5,6 +5,24 @@ import { Play, Pause, Volume2, VolumeX, Maximize2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
+// Extended Document interface to support vendor-specific fullscreen APIs
+interface ExtendedDocument extends Document {
+  webkitFullscreenEnabled?: boolean;
+  mozFullScreenEnabled?: boolean;
+  msFullscreenEnabled?: boolean;
+  webkitExitFullscreen?: () => Promise<void>;
+  mozCancelFullScreen?: () => Promise<void>;
+  msExitFullscreen?: () => Promise<void>;
+}
+
+// Extended HTMLVideoElement interface to support vendor-specific fullscreen APIs
+interface ExtendedHTMLVideoElement extends HTMLVideoElement {
+  webkitRequestFullscreen?: () => Promise<void>;
+  webkitEnterFullscreen?: () => void;
+  mozRequestFullScreen?: () => Promise<void>;
+  msRequestFullscreen?: () => Promise<void>;
+}
+
 interface VideoPlayerProps {
   src: string;
   title: string;
@@ -24,17 +42,18 @@ export function VideoPlayer({
   const [supportsFullscreen, setSupportsFullscreen] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<ExtendedHTMLVideoElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Check if fullscreen is supported
     if (typeof document !== 'undefined') {
+      const extendedDocument = document as ExtendedDocument;
       const hasFullscreenAPI = !!(
         document.fullscreenEnabled ||
-        (document as any).webkitFullscreenEnabled ||
-        (document as any).mozFullScreenEnabled ||
-        (document as any).msFullscreenEnabled
+        extendedDocument.webkitFullscreenEnabled ||
+        extendedDocument.mozFullScreenEnabled ||
+        extendedDocument.msFullscreenEnabled
       );
       setSupportsFullscreen(hasFullscreenAPI);
     }
@@ -62,32 +81,33 @@ export function VideoPlayer({
     if (!videoRef.current) return;
 
     const video = videoRef.current;
+    const extendedDocument = document as ExtendedDocument;
 
     try {
       if (document.fullscreenElement) {
         // Exit fullscreen
         if (document.exitFullscreen) {
           document.exitFullscreen();
-        } else if ((document as any).webkitExitFullscreen) {
-          (document as any).webkitExitFullscreen();
-        } else if ((document as any).mozCancelFullScreen) {
-          (document as any).mozCancelFullScreen();
-        } else if ((document as any).msExitFullscreen) {
-          (document as any).msExitFullscreen();
+        } else if (extendedDocument.webkitExitFullscreen) {
+          extendedDocument.webkitExitFullscreen();
+        } else if (extendedDocument.mozCancelFullScreen) {
+          extendedDocument.mozCancelFullScreen();
+        } else if (extendedDocument.msExitFullscreen) {
+          extendedDocument.msExitFullscreen();
         }
       } else {
         // Enter fullscreen with browser compatibility
         if (video.requestFullscreen) {
           video.requestFullscreen();
-        } else if ((video as any).webkitRequestFullscreen) {
-          (video as any).webkitRequestFullscreen();
-        } else if ((video as any).webkitEnterFullscreen) {
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.webkitEnterFullscreen) {
           // iOS Safari specific
-          (video as any).webkitEnterFullscreen();
-        } else if ((video as any).mozRequestFullScreen) {
-          (video as any).mozRequestFullScreen();
-        } else if ((video as any).msRequestFullscreen) {
-          (video as any).msRequestFullscreen();
+          video.webkitEnterFullscreen();
+        } else if (video.mozRequestFullScreen) {
+          video.mozRequestFullScreen();
+        } else if (video.msRequestFullscreen) {
+          video.msRequestFullscreen();
         } else {
           // Fallback: open video in new tab for mobile browsers that don't support fullscreen
           window.open(video.src, '_blank');
