@@ -21,8 +21,8 @@ export default function TeamPage() {
       image: '/images/team/Alex McCorkle .jpeg',
       socialKey: 'alex',
       description: [
-        'Transitioned into IT from having studied psychology',
-        'Will start working at SIKT this fall',
+        'Will begin working as a developer at SIKT in the fall',
+        'Transitioned into IT from a background in Psychology and Specialty Coffee',
       ],
     },
     {
